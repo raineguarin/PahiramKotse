@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reservations</title>
+        <link rel = "stylesheet" href = "../assets/global.css">
+    </head>
+    
+    <body>
+
+
+    <div class="name">
+            <h1>PahiramKotse</h1>
+        </div>
+        
+    <form action="/submit_form" method="post"> 
+        <div class="row">
+            <div class="half">
+                <h3> Pick-Up Date/Time</h3>
+                    <input type="date" class="form"name="pickup_date"> 
+                    <input type="time" class="form" name="pickup_time">
+                </div>
+
+            <div class="half">
+                <h3> Return Date/Time</h3>
+                    <input type="date" class="form" name="return_date"> 
+                    <input type="time" class="form" name="return_time">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="half">
+                <h3> Name</h3>
+                    <input type="text:lock" box="name" class="form"> 
+                </div>
+
+            <div class="half">
+                <h3> Number </h3>
+                    <input type="number" name="phone_number" class="form"> 
+            </div>
+
+            <div class="half">
+                <h3> Email</h3>
+                    <input type="email" name="email" class="form"> 
+            </div>
+        </div>
+    </form>
+
+    <div class="name">
+        <div class="book">
+            <button type="submit" class="proceed">
+                Submit Booking
+            </button>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <a href="homepage.html" class="disable-link"> Home</a>
+            <a href="contact-us.html" class="disable-link"> Contact Us</a>
+            <a href="reservations.html" class="disable-link"> Reservation</a>
+            <a href="friends.html" class="disable-link"> Friends</a>
+            <a href="cars.html" class="disable-link"> Our Cars</a>
+        </div>
+    </footer>
+
+    </body>
+</html>

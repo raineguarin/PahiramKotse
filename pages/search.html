@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User-Profile</title>
+    <link rel="stylesheet" href="../assets/global.css">
+</head>
+
+<body>
+
+    <div class="name">
+        <h1>PahiramKotse</h1>
+    </div>
+    
+    <h2 class="friendsheader">Search for Car of your Choice</h2>
+    <br>
+    
+    <div class="row">
+        <form action="/submit_form" method="post" class="searchfilter"> 
+
+            <h3>Availability Time</h3>
+
+            <div>
+                <input type="date" class="form" name="filterfromdate"> 
+                <input type="date" class="form" name="filtertodate"> 
+            </div>
+
+            <br>
+
+            <h3>Vehicle Capacity</h3>
+
+            <select name="capacity" class="form">
+                <option value="">Capacity</option>
+                <option value="5">5-seater</option>
+                <option value="7">7-seater</option>
+                <option value="15">15-seater</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit" class="proceed">Filter</button>
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <a href="homepage.html" class="disable-link">Home</a>
+            <a href="contact-us.html" class="disable-link">Contact Us</a>
+            <a href="reservations.html" class="disable-link">Reservation</a>
+            <a href="friends.html" class="disable-link">Friends</a>
+            <a href="cars.html" class="disable-link">Our Cars</a>
+        </div>
+    </footer>
+
+</body>
+</html>
