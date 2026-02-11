@@ -10,6 +10,16 @@ body {
   color: #0b1f2a;
 }
 
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px;
+    font-family: "Roboto", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
 
 .name {
   font-family: "Montserrat", sans-serif;
@@ -17,6 +27,7 @@ body {
   margin-top: 80px;
   color: #eaf3f8;
 }
+
 
 .name h1 {
   font-size: 3rem;
@@ -101,4 +112,183 @@ input[type="text"]:focus {
 .proceed:active {
   transform: translateY(0);
   box-shadow: none;
+}
+
+.disable-link {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+}
+
+.disable-linkcars {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  margin: 5%;
+  white-space: nowrap;
+}
+
+.box {
+    border-radius: 5px;
+    padding: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: black;
+}
+
+.boxcontainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px;
+}
+
+.boxcontainerprofile {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px;
+    text-align: center;
+}
+
+.boxcontainerprofile h2 {
+    color: white
+}
+
+.boxcontainerprofile h4 {
+  color: #b9d9e8;
+}
+
+.boxfriends {
+    margin-bottom: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: black;
+}
+
+.boxcars {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+    margin-bottom: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: black;
+    padding: 15px;
+}
+
+.boxcars h2 {
+    align-items: flex-start;
+}
+
+.boxcars img {
+    width: 400px;
+    max-width: 100%;       
+    border-radius: 15px; 
+}
+
+.boxcarsinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.boxcarsinfo h2 {
+  margin: 5%;
+  white-space: nowrap;
+}
+
+.boxcarsinfo h3 {
+  margin: 5%;
+}
+
+.box h4 {
+  color: #b9d9e8;
+}
+
+.half h3 {
+  color: #b9d9e8;
+}
+
+.row {
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.half {
+    flex: 1;
+}
+
+.half input {
+    width: 80%;
+}
+
+.form {
+    margin-right: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.friendsheader {
+  color: #b9d9e8;
+  text-align: center;
+}
+
+.friendssubheader {
+  color: #b9d9e8;
+  text-align: center;
+  font-size: smaller;
+}
+
+.boxfriends h2 {
+  color: white
+}
+
+.boxfriends h4 {
+  color: #3db7dd
+}
+
+.boxfriends p {
+  color: black
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.search {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchfilter {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  
+  padding: 30px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchfilter h3 {
+  text-align: center;
+}
+
+.half h3 {
+  padding-top: 50px;
 }
