@@ -159,21 +159,6 @@ input[type="text"]:focus {
   margin-right: auto;
 }
 
-.searchfilter {
-  width: max-content;
-  display: flex;
-  flex-direction: column;
-  
-  padding: 30px;
-
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.searchfilter h3 {
-  text-align: center;
-}
-
 .half h3 {
   padding-top: 50px;
 }
