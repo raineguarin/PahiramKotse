@@ -131,14 +131,6 @@ input[type="text"]:focus {
   font-size: 17px;
 }
 
-.disable-linkcars {
-  text-decoration: none;
-  color: black;
-  font-size: 17px;
-  margin: 5%;
-  white-space: nowrap;
-}
-
 .box {
     border-radius: 5px;
     padding: 50px;
