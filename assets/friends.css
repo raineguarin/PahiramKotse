@@ -1,29 +1,34 @@
 .boxfriends {
-    margin-bottom: 20px;
-    border: 5px solid rgba(0, 0, 0, 0.03);
-    background-color: rgba(0, 0, 0, 0.03);
-    color: black;
+  background-color: #162a33; 
+  border: 1px solid #3db7dd;  
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  transition: transform 0.2s ease;
+}
+
+.boxfriends:hover {
+  transform: translateY(-5px); /* Simple lift effect */
+}
+
+.boxfriends h2 {
+  color: white;
+  margin-top: 0;
+}
+
+.boxfriends h4 {
+  color: #3db7dd; /* Theme blue */
+  margin-bottom: 5px;
+}
+
+.boxfriends p {
+  color: #b9d9e8; /* Light grey for readability */
+  font-size: 16px;
+  margin: 0;
 }
 
 .friendsheader {
-    color: #b9d9e8;
-    text-align: center;
-  }
-  
-  .friendssubheader {
-    color: #b9d9e8;
-    text-align: center;
-    font-size: smaller;
-  }
-  
-  .boxfriends h2 {
-    color: white
-  }
-  
-  .boxfriends h4 {
-    color: #3db7dd
-  }
-  
-  .boxfriends p {
-    color: black
-  }
+  color: #b9d9e8;
+  text-align: center;
+}
