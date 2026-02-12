@@ -93,8 +93,7 @@ input[type="text"]:focus {
   margin-bottom: 20px;
 }
 
-.footer a {
-  color: #3db7dd;
+.footer a, .footer p{
   text-decoration: none;
   font-weight: 500;
 }
@@ -127,7 +126,7 @@ input[type="text"]:focus {
 
 .disable-link {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 17px;
 }
 
@@ -142,7 +141,7 @@ input[type="text"]:focus {
 .boxcontainer {
     max-width: 900px;
     margin: 0 auto;
-    padding: 80px;
+    padding: 10px 20px;
 }
 
 .box h4 {
@@ -168,3 +167,40 @@ input[type="text"]:focus {
   text-align: center;
   font-style: italic;
 }
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  background-color: #2fa3c6;
+}
+
+.navlinks {
+  font-size: 20px;
+  list-style-type: none;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 0; 
+}
+
+.navlinks li {
+  text-align: center;
+}
+
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.navlinks a:hover {
+  color: gray;
+  transform: scale(1.05);
+}
+

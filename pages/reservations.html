@@ -1,65 +1,77 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Reservations</title>
-        <link rel = "stylesheet" href = "../assets/global.css">\
-        <link rel = "stylesheet" href = "../assets/reservations.css">
+        <title>My Reservations</title>
+        <link rel="stylesheet" href="../assets/global.css">
+        <link rel="stylesheet" href="../assets/friends.css">
     </head>
-    
+
     <body>
 
-
-    <div class="name">
-            <img src="../assets/logo.png" width="600px">
-        </div>
-        
-    <form action="/submit_form" method="post"> 
-        <div class="row">
-            <div class="half">
-                <h3> Pick-Up Date/Time</h3>
-                    <input type="date" class="form"name="pickup_date"> 
-                    <input type="time" class="form" name="pickup_time">
-                </div>
-
-            <div class="half">
-                <h3> Return Date/Time</h3>
-                    <input type="date" class="form" name="return_date"> 
-                    <input type="time" class="form" name="return_time">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="half">
-                <h3> Name</h3>
-                    <input type="text:lock" box="name" class="form"> 
-                </div>
-
-            <div class="half">
-                <h3> Number </h3>
-                    <input type="number" name="phone_number" class="form"> 
+        <div class="header-flex">
+            <div class="logo">
+                <img src="../assets/logo.png" width="300px">
             </div>
 
-            <div class="half">
-                <h3> Email</h3>
-                    <input type="email" name="email" class="form"> 
-            </div>
+            <ul class="navlinks">
+                <li><a href="cars.html">Our Vehicles</a></li>
+                <li><a href="search.html">Search a Car</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="reservations.html">My Reservations</a></li>
+                <li>
+                    <a href="profile.html">
+                        <img src="../assets/profilepicture.png" alt="Profile" width="40px" height="40px" style="border-radius:50%;">
+                    </a>
+                </li>
+            </ul>
         </div>
-    </form>
 
-    <div class="name">
-        <div class="book">
-            <button type="submit" class="proceed">
-                Submit Booking
-            </button>
+    <h2 class="friendsheader">Processing Reservations</h2>
+
+    <div class="boxcontainer">
+        <div class="boxfriends">
+            <h2> Mitsubishi SUV</h2>
+            <h4>Pickup: TBD</h4>
+            <h4>Return: TBD</h4>
+            <p>Reservation is still processing, awaiting admin confirmation</p>
+        </div>
+    </div>
+
+    <h2 class="friendsheader">Ongoing Reservations</h2>
+
+    <div class="boxcontainer">
+        <div class="boxfriends">
+            <h2> Honda Sedan</h2>
+            <h4>Pickup: 12 Feb 2026</h4>
+            <h4>Return: 15 Feb 2026</h4>
+            <p>Reservation is currently active</p>
+        </div>s
+    </div>
+
+    <h2 class="friendsheader">Completed Reservations</h2>
+
+    <div class="boxcontainer">
+        <div class="boxfriends">
+            <h2> Nissan Van</h2>
+            <h4>Pickup: 01 Feb 2026</h4>
+            <h4>Return: 05 Feb 2026</h4>
+            <p>Reservation completed successfully</p>
+            <br> <button class="review">Make a Review</button>
+        </div>
+
+        <div class="boxfriends">
+            <h2> Ford Sedan</h2>
+            <h4>Pickup: 25 Jan 2026</h4>
+            <h4>Return: 30 Jan 2026</h4>
+            <p>Reservation completed successfully</p>
+            <br> <button class="review">Make a Review</button>
+        </div>
     </div>
 
     <footer>
         <div class="footerContainer">
-            <a href="homepage.html" class="disable-link"> Home</a>
+            <p> This is an MCO project for GDAPDEV XX22 by Group 4. </p>
             <a href="contact-us.html" class="disable-link"> Contact Us</a>
-            <a href="reservations.html" class="disable-link"> Reservation</a>
-            <a href="friends.html" class="disable-link"> Friends</a>
-            <a href="cars.html" class="disable-link"> Our Cars</a>
         </div>
     </footer>
 

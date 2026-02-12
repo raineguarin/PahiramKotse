@@ -55,3 +55,58 @@
     color: #162a33;
     transform: scale(1.05);
 }
+
+.boxcars {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+    margin-bottom: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: black;
+    padding: 15px;
+}
+
+.boxcars h2 {
+    align-items: flex-start;
+}
+
+.boxcars img {
+    width: 400px;
+    max-width: 100%;       
+    border-radius: 15px; 
+}
+
+.boxcarsinfo {
+    display: flex;
+    align-items: flex-start;    
+    gap: 20px;                    
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: #b9d9e8;
+    padding: 15px;
+    border-radius: 15px;          
+    max-width: 900px;
+    margin: 20px auto;            
+}
+
+.boxcarsinfo h2, .boxcarsinfo h3 {
+    margin: 5%;
+    color: #b9d9e8;            
+}
+
+.boxcarsinfo img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 37px;
+    font-style: italic;
+    color: #3db7dd;
+    text-align: center;
+    margin-top: 100px;
+}

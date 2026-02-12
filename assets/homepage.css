@@ -1,30 +1,4 @@
-.navlinks {
-    font-size: 20px;
-    list-style-type: none;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 0; 
-}
 
-.navlinks li {
-    text-align: center;
-}
-
-.navlinks a {
-    color: white;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-}
-
-.navlinks a:hover {
-    color: gray;
-    transform: scale(1.05);
-}
 
 h2{
     font-family: "Montserrat", sans-serif;
@@ -99,4 +73,38 @@ p{
     border-radius: 10px;
     padding: 5px 15px;
     min-width: 95px; 
+}
+
+.home-flex {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: 40px 20px;
+    gap: 30px;
+}
+
+.home-left, .home-right {
+    flex: 1;
+    background-color: #FFFFFF14;
+    border-radius: 15px;
+    padding: 40px 30px 100px 30px;
+    box-sizing: border-box;
+}
+
+.home-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+h3 {
+    color: white
+}
+
+.logo img {
+    width: 400px;
+    height: auto;
 }

@@ -1,7 +1,7 @@
 .icons {
   display: flex;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .icons button {
@@ -17,41 +17,80 @@
   background-color: #2fa3c6;
 }
 
-.vehicle-grid {
+.filters {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.vehicle-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;  
-  align-items: center;
+.filters select {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
 
+.reservation-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.reservation-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   background-color: rgba(255, 255, 255, 0.08);
   padding: 20px;
   border-radius: 15px;
   backdrop-filter: blur(6px);
 }
 
-.vehicle-card img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 15px;
-}
-
-.vehicle-info {
+.reservation-info {
   color: white;
-  padding: 20px;
 }
 
-.vehicle-info h2 {
+.reservation-info h2 {
   margin-bottom: 10px;
 }
 
-.vehicle-info p {
+.reservation-info p {
   margin: 6px 0;
 }
 
+.reservation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.reservation-actions button {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.approve {
+  background-color: #4caf50;
+}
+
+.decline {
+  background-color: #f44336;
+}
+
+.complete {
+  background-color: #3db7dd;
+}
+
+.cancel {
+  background-color: #ff9800;
+}
+
+.reservation-actions button:hover {
+  opacity: 0.85;
+}
 .name {
     background-color: #FFFFFF14;
     padding: 20px 40px;
@@ -76,3 +115,4 @@
     color: #b9d9e8;
     font-family: "Montserrat", sans-serif;
 }
+

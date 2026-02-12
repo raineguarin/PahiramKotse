@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reservations</title>
+        <link rel="stylesheet" href="../assets/global.css">
+        <link rel="stylesheet" href="../assets/reservations.css">
+    </head>
+    
+    <body>
+
+        <div class="header-flex">
+            <div class="logo">
+                <img src="../assets/logo.png" width="300px">
+            </div>
+
+            <ul class="navlinks">
+                <li><a href="cars.html">Our Vehicles</a></li>
+                <li><a href="search.html">Search a Car</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="reservations.html">My Reservations</a></li>
+                <li>
+                    <a href="profile.html">
+                        <img src="../assets/profilepicture.png" alt="Profile" width="40px" height="40px" style="border-radius:50%;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="reserving-car">
+            <h2> Reserving this Car:</h2>
+            <div class="boxcars">
+                <img src="../assets/sedan.png">
+                <div class="boxcarsinfo">
+                    <h2> Honda Sedan</h2>
+                    <h3> 5-Seater</h3>
+                    <h3> Available</h3>
+                    <h3> Rentable</h3>
+                </div>
+            </div>
+        </div>
+        
+        <form action="/submit_form" method="post"> 
+            <div class="row">
+                <div class="half">
+                    <h3>Pick-Up Date/Time</h3>
+                    <input type="date" class="form" name="pickup_date"> 
+                    <input type="time" class="form" name="pickup_time">
+                </div>
+
+                <div class="half">
+                    <h3>Return Date/Time</h3>
+                    <input type="date" class="form" name="return_date"> 
+                    <input type="time" class="form" name="return_time">
+                </div>
+            </div>
+        </form>
+
+        <div class="name">
+            <div class="book">
+                <button type="submit" class="proceed">
+                    Submit Booking
+                </button>
+            </div>
+        </div>
+
+    <footer>
+        <div class="footerContainer">
+            <p> This is an MCO project for GDAPDEV XX22 by Group 4. </p>
+            <a href="contact-us.html" class="disable-link"> Contact Us</a>
+        </div>
+    </footer>
+
+    </body>
+</html>
