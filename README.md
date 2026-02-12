@@ -1,36 +1,44 @@
-# GDAPDEV-MCO
+# Bus Terminal Management System
 
-Design Guide for just us hehe
+**PROJECT IN DEVELOPMENT**
 
-**FONTS**
-Header: Montserrat Bold (white)
-- for smaller (?) headers: Montserrat Italicized (#eaf3f8)
-  
-Body: Roboto (black/white depending on background)
-- links: #eaf3f8
+**PahiramKotse** is a web application that allows customers to easily rent a car online, and company administrators to manage reservations more conveniently.
 
-**COLOR PALETTE**
-- #0b1f2a
-- #1f4e6a
-- #3db7dd
-- #2fa3c6
-- white
-- black
+## Project Information
 
-**PAGE NAMES**
-- **Login**: login.html-
-- **Register**: register.html
-- **Profile**: profile.html
-- **Dashboard**: homepage.html
+**Course:** GDAPDEV: Web Application Development  
+**Academic Year:** 2025-2026, Term 2  
+**Institution:** De La Salle University  
+**Current Status:** Under revision
 
-**User**
-- **Search**: search.html
-- **Available Cars**: cars.html
-- **Look for friends**: friends.html
-- **Reservation**: reservations.html
-- **Contact Us**: contact-us.html
+## Team Members
 
-**Admin**
-- **Manage Users**: manage-users.html
-- **Manage Vehicles**: manage-vehicles.html
-- **Manage Reservations**: manage-reservations.html
+- **Ching, Ashton Jude**
+- **Guarin, Raine Louise**
+- **Gutierrez, Michael Luis**
+- **Villamor, Allysa Luise**
+- 
+## Project Overview
+
+## Planned Features
+
+## Technology Stack
+
+## Current Status
+
+## Getting Started
+
+### Prerequisite Downloads
+
+
+### Setup Instructions
+
+### Current Repository Structure
+
+## Development Guidelines
+
+### Team Responsibilities
+
+## Notes
+
+
