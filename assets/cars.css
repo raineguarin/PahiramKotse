@@ -23,6 +23,7 @@
 .boxcarsinfo {
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 
@@ -33,4 +34,16 @@
 
 .boxcarsinfo h3 {
   margin: 5%;
+}
+
+.disable-linkcars {
+  color: #3db7dd;
+  font-size: 17px;
+  margin: 5%;
+  white-space: nowrap;
+}
+
+.disable-linkcars:hover {
+  color: gray;
+  transform: scale(1.03);
 }
