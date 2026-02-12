@@ -1,0 +1,57 @@
+.row {
+    max-width: 900px;
+    margin: 20px auto;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px 20px;
+}
+
+.half {
+    flex: 1;
+}
+
+.half h3 {
+    font-family: "Montserrat", sans-serif;
+    color: #b9d9e8;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form {
+    width: 100%;
+    padding: 12px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    background-color: #162a33;
+    color: white;
+    border: 1px solid #3db7dd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.book {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.proceed {
+    background-color: #3db7dd;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.proceed:hover {
+    background-color: #b9d9e8;
+    color: #162a33;
+    transform: scale(1.05);
+}
