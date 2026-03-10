@@ -8,6 +8,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const hbs = require('hbs');
+const session = require('express-session');
 
 const app = express();
 
@@ -28,6 +29,12 @@ app.set('views', path.join(__dirname, 'view'));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'js')));
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'secret_key', // encryption
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set to false because localhost
+}));
 
 // ROUTE HANDLERS
 const indexRoutes = require('./routes/index');

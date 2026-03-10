@@ -40,4 +40,26 @@ router.get('/admin-homepage', async (req, res) => {
     }
 });
 
+// Admin Profile
+router.get('/admin-profile', async (req, res) => {
+    try {
+        // 2. ROUTE PROTECTION: Check if they have a session ID
+        if (!req.session.userId) {
+            return res.redirect('/login'); 
+        }
+
+        const currentUser = await User.findById(req.session.userId);
+
+        if (!currentUser) {
+            return res.redirect('/login');
+        }
+
+        res.render('admin-profile', { user: currentUser });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading profile page.");
+    }
+});
+
 module.exports = router;

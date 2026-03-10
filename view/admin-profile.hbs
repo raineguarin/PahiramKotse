@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+   <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/profile.css">
+</head>
+
+<body>
+    <div class="header-flex">
+        <div class="logo">
+            <img src="/images/logo.png" width="300px">
+        </div>
+        <ul class="navlinks">
+            <li><a href="/admin-homepage">To Dashboard</a></li>
+            <li>
+                <a href="/admin-profile">
+                <img src="/images/profilepicture.png" alt="Profile" width="40px" height="40px" style="border-radius:50%;">
+                </a>
+            </li>
+        </ul>
+    </div>
+                
+    <div class="boxcontainerprofile">
+         <div class="profile-info">
+           <img src="{{#if user.profilePicture}}/images/{{user.profilePicture}}{{else}}/images/profilepicture.png{{/if}}" width="100px" style="border-radius: 50%;">
+            
+           <h2>{{user.name}}</h2>
+            
+            <h4>
+                {{#if user.isPublic}}
+                    Public Profile
+                {{else}}
+                    Private Profile
+                {{/if}}
+            </h4>
+            
+            <h4 id="logoutbtn" style="color:red; cursor: pointer;">Log Out</h4>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <p>This is an MCO project for GDAPDEV XX22 by Group 4.</p>
+            <a href="/contact-us" class="disable-link">Contact Us</a>
+        </div>
+    </footer>
+
+    <div id="logout" class="Popup">
+        <div class="Popupcontent">
+            <h2>Log Out</h2>
+            <hr>
+            <p>Logging out?</p>
+            <div class="logoutbuttons" style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                <button class="cancel" id="logoutCancel">Cancel</button>
+                <button class="proceed" id="logoutConfirm" style="background-color: red;">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/profile.js"></script>
+</body>
+</html>
