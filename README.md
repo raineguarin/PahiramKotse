@@ -31,9 +31,13 @@
 
 ## Technology Stack
 **Frontend**: HTML, CSS, Javascript
+
 **Backend**: Handlebars
+
 **Database**: MongoDB
+
 **Architecture**: Model View Controller design
+
 **Deployment**: Local deployment via Node.js
 
 ## Current Status
