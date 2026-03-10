@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Reservations</title>
+    <link rel="stylesheet" href="/manage-reservations.css">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="header-flex">
+        <div class="logo">
+            <img src="/images/logo.png" width="300px">
+        </div>
+        <ul class="navlinks">
+            <li><a href="/admin-homepage">To Dashboard</a></li>
+            <li>
+                <a href="/admin-profile">
+                <img src="/profilepicture.png" alt="Profile" width="40px" height="40px" style="border-radius:50%;">
+                </a>
+            </li>
+        </ul>
+    </div>
+                
+    <div class="name">
+        <h1>Manage Reservations</h1>
+        <p>Admin</p>
+    </div>
+
+    <div class="boxcontainer">
+
+        <div class="icons">
+            <button><i class="fa-solid fa-plus"></i> Walk-in Reservation</button>
+            <button><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+            <button><i class="fa-solid fa-check"></i> Confirm Payment</button>
+            <button><i class="fa-solid fa-ban"></i> Cancel</button>
+        </div>
+
+        <div class="filters">
+            <select>
+                <option>Time</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+            </select>
+
+            <select>
+                <option>Status</option>
+                <option>Pending</option>
+                <option>Approved</option>
+                <option>Cancelled</option>
+                <option>Completed</option>
+            </select>
+
+            <select>
+                <option>Payment</option>
+                <option>Unpaid</option>
+                <option>Down Payment</option>
+                <option>Fully Paid</option>
+            </select>
+        </div>
+
+        <div class="reservation-grid">
+           {{#each reservations}}
+            <div class="reservation-card">
+                <div class="reservation-info">
+                    <h2>Reservation ID: {{this._id}}</h2>
+                   <p><strong>Customer:</strong> {{this.customer.name}}</p>
+                    <p><strong>Vehicle:</strong> {{this.vehicle.brand}} {{this.vehicle.model}}</p>
+                    <p><strong>Date:</strong> {{this.date}}</p>
+                    <p><strong>Time:</strong> {{this.time}}</p>
+                    <p><strong>Status:</strong> {{this.status}}</p>
+                    <p><strong>Payment:</strong> {{this.paymentStatus}}</p>
+                </div>
+
+                <div class="reservation-actions">
+                    {{#if (eq this.status 'Pending')}}
+                        <button class="approve">Approve</button>
+                        <button class="decline">Decline</button>
+                    {{/if}}
+
+                    {{#if (eq this.status 'Approved')}}
+                        <button class="complete">Completed</button>
+                        <button class="cancel">Cancel</button>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <a href="/manage-users" class="disable-link">Manage Users</a>
+            <a href="/manage-vehicles" class="disable-link">Manage Vehicles</a>
+            <a href="/manage-reservations" class="disable-link">Manage Reservations</a>
+        </div>
+    </footer>
+
+    <div id="managres" class="popup">
+        <div class=Popupcontent>
+            <h2 id="managresTitle">Confirm Action</h2>
+            <hr>
+            <div id="managresBody">
+                <p>Are you sure you want to <strong id="managresText"></strong> 
+                <br><span id="managresTarget" style="color: #3db7dd;"></span>?</p>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="cancel" id="managresCancel">No</button>
+                    <button class="proceed" id="managresConfirm">Yes, Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/manage-reservations.js"></script>
+</body>
+</html>

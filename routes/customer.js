@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const User = require('../model/user');
+const user = require('../model/user');
 
 router.get('/register', (req, res) => {
     res.render('register');
@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
     try {
         const { name, email, number, password, username } = req.body;
 
-        const newUser = new User({
+        const newUser = new user({
             name,
             email,
             phone: number,
@@ -42,7 +42,8 @@ router.post('/login', async (req, res) => {
         
         if(userFound){
             if(userFound.password == password){
-                res.redirect('/profile');
+                res.redirect('/cars'); // after login should go to cars page
+                
             } else {
                 res.status(401).send("Invalid Password");
             }

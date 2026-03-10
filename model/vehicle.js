@@ -6,7 +6,8 @@ const vehicleSchema = new mongoose.Schema({
     carType: String,
     capacity: Number,
     dailyRate: Number, 
-    likes: Number
+    likes: Number,
+    image: { type: String, default: '/images/default.png' }
 });
 
 module.exports = mongoose.model('Vehicle', vehicleSchema);
