@@ -52,7 +52,91 @@ The backend is currently being implemented and being tested via server deploymen
 2. Set up the database
    - Via MongoDB Compass IDE:
        1. Create a new connection
-       2. Paste this URI: ``mongodb+srv://PahiramKoAdmin:Group4Apdev@pahiramkotse.g6rovco.mongodb.net/pahiramKotseDB?retryWrites=true&w=majority''
- 
+       2. Paste this URI: ``mongodb+srv://PahiramKoAdmin:Group4Apdev@pahiramkotse.g6rovco.mongodb.net/pahiramKotseDB?retryWrites=true&w=majority``
+       3. Press **Save and Connect**
+    
+   - Via MongoDB Atlas:
+3. Install Handlebars via Node.js in the terminal (make sure it is in the repository)
+   ``npm install express express-handlebars``
+4. Start the server using the following command
+   ``node app,js``
+
+## Current Repository Structure
+``
+GDAPDEV-MCO/
+│   .gitignore
+│   app.js
+│   LICENSE
+│   package-lock.json
+│   package.json
+│   README.md
+│
+├───assets                               # CSS stylesheets
+│   │   cars.css
+│   │   contact-us.css
+│   │   friends.css
+│   │   global.css
+│   │   homepage.css
+│   │   manage-reservations.css
+│   │   manage-users.css
+│   │   manage-vehicles.css
+│   │   profile.css
+│   │   register.css
+│   │   reservations.css
+│   │   search.css
+│   │
+│   └───images                           # Images used
+│           ford.avif
+│           logo.png
+│           profilepicture.png
+│           sedan.png
+│           suv.png
+│
+├───js                                   # JavaScript logic handling
+│       cars.js
+│       friends.js
+│       manage-reservations.js
+│       manage-users.js
+│       profile.js
+│       register.js
+│       reserve-cars.js
+│
+├───model                                # Objects
+│       reservation.js
+│       user.js
+│       vehicle.js
+│
+├───node_modules                         # Modules for Node (inimized document for length)
+├───pages but put HBS in view folder     # Initial HTML pages
+│       admin-homepage.html
+│       admin-profile.html
+│       cars.html
+│       contact-us.html
+│       friends.html
+│       homepage.html
+│       login.html
+│       manage-reservations.html
+│       manage-users.html
+│       manage-vehicles.html
+│       profile.html
+│       register.html
+│       reservations.html
+│       reserve-car.html
+│       search.html
+│
+├───routes                                # Routers
+│       customer.js
+│       index.js
+│       reservation.js
+│       user.js
+│       vehicle.js
+│
+└───view                                 # Handlebars pages
+        admin-homepage.hbs
+        homepage.hbs
+        manage-users.hbs
+        register.hbs
+``
+
 
 
