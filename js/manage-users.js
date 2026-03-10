@@ -7,7 +7,21 @@ const cancelBtn = document.getElementById("managuserCancel");
 const usersGrid = document.querySelector(".users-grid");
 
 usersGrid.addEventListener("click", function(e) {
+    const clickedCard = e.target.closest(".user-card");
+    
+    if (clickedCard && !e.target.closest(".user-buttons")) {
+        const btnContainer = clickedCard.querySelector(".user-buttons");
+        
+        document.querySelectorAll(".user-buttons").forEach(btn => {
+            if (btn !== btnContainer) btn.style.display = "none";
+        });
 
+        if (btnContainer.style.display === "none") {
+            btnContainer.style.display = "flex";
+        } else {
+            btnContainer.style.display = "none";
+        }
+    }
     if (e.target.classList.contains("activate-btn") || e.target.classList.contains("suspend-btn")) {
         
 
@@ -46,3 +60,8 @@ confirmBtn.onclick = () => {
     alert("User status has been updated.");
     manageRes.style.display = "none";
 };
+
+// Hide all buttons by default when the page loads
+document.querySelectorAll(".user-buttons").forEach(btn => {
+    btn.style.display = "none";
+});

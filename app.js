@@ -16,6 +16,10 @@ mongoose.connect('mongodb+srv://PahiramKoAdmin:Group4Apdev@pahiramkotse.g6rovco.
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to MongoDB...', err));
 
+hbs.registerHelper('eq', function (a, b) {
+    return a === b;
+});
+  
 // VIEW ENGINE SETUP
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'view')); 
