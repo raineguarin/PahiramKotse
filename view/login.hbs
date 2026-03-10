@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login - PahiramKotse</title>
+    <link rel="stylesheet" href="/global.css">
+</head>
+    
+    <body>
+        <div class="name">
+            <img src="/assets/logo.png" width="600px">
+            <div class="desc">
+                <h3> Rent a car now! </h3>
+            </div>
+        </div>
+      
+        <form action="/login" method="POST" class="userDetails">
+            Email:
+            <div class="emailInput"> 
+                <input type="email" name="email" required>
+            </div>
+            
+            Password:
+            <div class="passInput">
+                <input type="password" name="password" required>
+            </div>
+            
+            <div class="footer">
+                No account? <a href="/register"> Register here! </a>
+            </div>
+        
+            <button type="submit" class="proceed">Proceed</button>
+        </form>
+    </body>
+</html>

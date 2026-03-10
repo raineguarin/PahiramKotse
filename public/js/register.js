@@ -75,6 +75,7 @@ async function validateForm() {
             if (response.ok) {
                 alert("Account created successfully!");
                 window.location.href = "/login"; // login redirext
+            } else {
                 alert("Registration Error: " + result.error);
             }
         } catch (error) {
