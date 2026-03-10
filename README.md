@@ -122,6 +122,7 @@ The backend is currently being implemented and being tested via server deploymen
 ├── LICENSE                               
 ├── package.json                          
 ├── package-lock.json                    
-└── README.md                             # Project documentation ```
+└── README.md                             # Project documentation
+```
 
 
