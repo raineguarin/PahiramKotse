@@ -30,4 +30,28 @@ router.post('/register', async (req, res) => {
     }
 });
 
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
+// Login
+router.post('/login', async (req, res) => {
+    try{
+        const {email, password} = req.body;
+        const foundUser = await user.findOne({ email: email });
+        
+        if(foundUser){
+            if(foundUser.password == password){
+                res.redirect('/profile');
+            } else {
+                res.status(401).send("Invalid Password");
+            }
+        } else {
+            res.status(404).send("No users found.");
+        }
+    } catch (err){
+        console.error(err);
+        res.status(500).send("Sorry, an error occured in login.");  
+    }
+});
 module.exports = router;
