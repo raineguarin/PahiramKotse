@@ -65,10 +65,14 @@ The backend is currently being implemented and being tested via server deploymen
        3. Press **Save and Connect**
     
    - Via MongoDB Atlas:
-3. Install Handlebars via Node.js in the terminal (make sure it is in the repository)
+3. Install Handlebars, Session, and Multer via Node.js in the terminal (make sure it is in the repository)
 
-   ```npm install express express-handlebars```
-4. Start the server using the following command
+   ```
+   npm install express express-handlebars
+   npm install express-session
+   npm install multer
+   ```
+5. Start the server using the following command
 
    ```node app.js```
 
