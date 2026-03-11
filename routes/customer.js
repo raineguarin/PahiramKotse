@@ -52,7 +52,7 @@ router.post('/register', upload.single('profilePic'), async (req, res) => {
 
         await newUser.save();
         
-        // Use status 201 for successful creation if using AJAX/Fetch
+        
         res.redirect('/login');
     } catch (err) {
         console.error(err);
@@ -93,8 +93,23 @@ router.post('/login', async (req, res) => {
 });
 
 // Profile
-router.get('/profile', (req, res) => {
-    res.render('profile');
+router.get('/profile', async (req, res) => {
+    try {
+        if (!req.session.userId) {
+            return res.redirect('/login'); 
+        }
+
+        const userFound = await user.findById(req.session.userId);
+
+        if (userFound) {
+            res.render('profile', { user: userFound }); 
+        } else {
+            res.status(404).send("User not found.");
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Sorry, an error occurred while loading the profile.");
+    }
 });
 
 router.post('/profile', async (req, res) => {

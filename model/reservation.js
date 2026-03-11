@@ -2,12 +2,12 @@
 const mongoose = require('mongoose');
 
 const reservationSchema = new mongoose.Schema({
-    // 'ref' links this directly to user and vehicle model
+    
     customer: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle', required: true },
     
-    date: String, // "Feb 20, 2026"
-    time: String, // "9:00 AM - 12:00 PM"
+    date: String, 
+    time: String, 
     
     status: { 
         type: String, 

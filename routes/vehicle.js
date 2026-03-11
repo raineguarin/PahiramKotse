@@ -22,4 +22,16 @@ router.post('/add-vehicle', async (req, res) => {
     res.send("Vehicle added! (Logic coming soon)");
 });
 
+
+// GET: Show the public Cars page
+router.get('/cars', async (req, res) => {
+    try {
+        const allVehicles = await vehicle.find({});
+        
+        res.render('cars', { vehicles: allVehicles });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading vehicles.");
+    }
+});
 module.exports = router;

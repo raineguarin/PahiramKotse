@@ -1,16 +1,5 @@
 const mockReviews = {
-    car1: {
-        name: "Honda Sedan Reviews",
-        reviews: ["Amazing sedan, my dog loved it" , "It sucks, i drove into a pothole", "the design is very human"]
-    },
-    car2: {
-        name: "Toyota SUV Reviews",
-        reviews: ["Why is it so slow", "My children love it", "the design is very human"]
-    },
-    car3: {
-        name: "Ford Van Reviews",
-        reviews: ["too big, hard to drive", "i drove from quezon city to laguna in 6 hours, but in comfort", "the design is very human"]
-    }
+    default: ["Amazing vehicle!", "Very comfortable.", "The design is very human."]
 };
 
 const Popup = document.getElementById("reviewPopup");
@@ -23,13 +12,13 @@ reviewLinks.forEach(link => {
     link.addEventListener("click", function(event) {
         event.preventDefault();
         
-        const carType = this.getAttribute("data-car");
-        const data = mockReviews[carType];
+        const carId = this.getAttribute("data-car");
+        const carName = this.getAttribute("data-name");
 
-        reviewTitle.innerText = data.name;
-        
+        reviewTitle.innerText = `${carName} Reviews`;
         reviewbody.innerHTML = ""; 
-        data.reviews.forEach(rev => {
+        
+        mockReviews.default.forEach(rev => {
             const p = document.createElement("p");
             p.innerText = `“${rev}”`;
             reviewbody.appendChild(p);

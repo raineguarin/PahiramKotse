@@ -26,6 +26,8 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'view')); 
 
 // MIDDLEWARE
+app.use(express.static('public'));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'js')));
 app.use(express.urlencoded({ extended: true }));

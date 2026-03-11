@@ -17,9 +17,27 @@ router.get('/manage-reservations', async (req, res) => {
 });
 
 // POST: Update a reservation status (e.g., Approve or Cancel)
-router.post('/update-reservation', async (req, res) => {
-    // put the MongoDB update logic here later
-    res.send("Reservation updated! (Logic coming soon)");
+router.post('/reservation', async (req, res) => {
+    try {
+        if (!req.session.userId) {
+            return res.status(401).json({ error: "Please log in first." });
+        }
+
+        const { carId, date, time } = req.body;
+
+        const newRes = new reservation({
+            customer: req.session.userId,
+            vehicle: carId,
+            date,
+            time
+        });
+
+        await newRes.save();
+        res.status(201).json({ message: "Success" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to save reservation." });
+    }
 });
 
 module.exports = router;
