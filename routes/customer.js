@@ -3,30 +3,60 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../model/user');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+// This allows the user to upload an img from their local machine
+const uploadDir = path.join(__dirname, 'assets', 'images', 'pfps');
+
+// This makes the directory if it doesn't exist
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+// Picture Storage Configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
 
 router.get('/register', (req, res) => {
     res.render('register');
 });
 
 // Register
-router.post('/register', async (req, res) => {
+router.post('/register', upload.single('profilePic'), async (req, res) => {
     try {
         const { name, email, number, password, username } = req.body;
+        
+        // Stores only the filename or a relative web path in the DB
+        // If the req.file exists, store the generated filename, otherwise use the default
+        const imagePath = req.file ? req.file.filename : 'default.png';
 
         const newUser = new user({
             name,
             email,
             phone: number,
             password, 
-            username: username || email,  // uses email as a fallback 
-            role: 'Customer'
+            username: username || email,
+            role: 'Customer',
+            profilePicture: req.file ? req.file.filename : 'default.jpg' 
         });
 
         await newUser.save();
-        res.status(201).json({ message: "User registered successfully!" });
+        
+        // Use status 201 for successful creation if using AJAX/Fetch
+        res.redirect('/login');
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Registration failed. Email might already exist." });
+        res.status(500).json({ error: "Server Error during registration" });
     }
 });
 
@@ -47,7 +77,7 @@ router.post('/login', async (req, res) => {
                 if (userFound.role === 'Admin') {
                     res.redirect('/admin-homepage'); 
                 } else {
-                    res.redirect('/cars'); 
+                    res.redirect('/profile'); 
                 }
                 
             } else {
