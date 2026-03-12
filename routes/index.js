@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 router.get('/admin-homepage', async (req, res) => {
     try {
         const userCount = await user.countDocuments();
-        const vehicleCount = await vehicle.countDocuments({ status: 'Available' }); 
+        const vehicleCount = await vehicle.countDocuments({ status: true });
         const reservationCount = await reservation.countDocuments();
 
         res.render('admin-homepage', {

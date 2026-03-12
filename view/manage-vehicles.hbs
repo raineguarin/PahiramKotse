@@ -47,7 +47,13 @@
                     <p><strong>Type:</strong> {{this.carType}}</p>
                     <p><strong>Capacity:</strong> {{this.capacity}}-Seater</p>
                     <p><strong>Daily Rate:</strong> ₱{{this.dailyRate}}</p>
-                    <p><strong>Status:</strong> {{this.status}}</p>
+                    <p><strong>Status:</strong> 
+                        {{#if this.status}}
+                            Available
+                        {{else}}
+                            Unavailable
+                        {{/if}}
+                    </p>
                 </div>
             </div>
             {{/each}}

@@ -128,4 +128,18 @@ router.post('/profile', async (req, res) => {
     }
 });
 
+//logout
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Error logging out:", err);
+            return res.status(500).send("Could not log out.");
+        }
+        
+        res.clearCookie('connect.sid'); 
+        
+        res.redirect('/'); 
+    });
+});
+
 module.exports = router;
