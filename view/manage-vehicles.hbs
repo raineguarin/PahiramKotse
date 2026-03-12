@@ -10,13 +10,13 @@
 <body>
     <div class="header-flex">
         <div class="logo">
-            <img src="/images/logo.png" width="300px">
+            <img src="/images/logo.png" width="300px" alt="Logo">
         </div>
         <ul class="navlinks">
-            <li><a href="/admin-homepage">To Dashboard</a></li>
+           <li><a href="/admin-homepage">To Dashboard</a></li>
             <li>
                 <a href="/admin-profile">
-                <img src="/profilepicture.png" alt="Profile" width="40px" height="40px" style="border-radius:50%;">
+                <img src="/images/profilepicture.png" alt="Profile" width="40px" height="40px" class="nav-profile-pic">
                 </a>
             </li>
         </ul>
@@ -28,30 +28,62 @@
     </div>
 
     <div class="boxcontainer">
+        
+        <div class="top-bar">
+            <div class="search-user">
+                <input type="text" id="searchInput" placeholder="Search Brand or Model...">
+            </div>
 
-        <div class="icons">
-            <button><i class="fa-solid fa-plus"></i> Add</button>
-            <button><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-            <button><i class="fa-solid fa-trash"></i> Delete</button>
-            <button><i class="fa-solid fa-upload"></i> Upload Image</button>
+            <div class="icons">
+                <button id="addBtn" class="btn-add"><i class="fa-solid fa-plus"></i> Add Vehicle</button>
+                <button id="editBtn" class="btn-edit" disabled><i class="fa-solid fa-pen-to-square"></i> Edit Vehicle</button>
+                <button id="deleteBtn" class="btn-delete" disabled><i class="fa-solid fa-trash"></i> Delete Vehicle</button>
+            </div>
         </div>
 
-        <div class="vehicle-grid">
-            {{#each vehicles}}
-            <div class="vehicle-card">
-                <img src="{{this.image}}" alt="{{this.brand}} {{this.model}}">
+        <div class="filters">
+            <select id="filterType">
+                <option value="all">All Types</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Van">Van</option>
+            </select>
 
+            <select id="filterStatus">
+                <option value="all">All Statuses</option>
+                <option value="true">Available</option>
+                <option value="false">Unavailable</option>
+            </select>
+
+            <select id="sortRate">
+                <option value="default">Sort by Rate</option>
+                <option value="low">Lowest to Highest</option>
+                <option value="high">Highest to Lowest</option>
+            </select>
+        </div>
+
+        <div class="vehicle-grid" id="vehicleGrid">
+            {{#each vehicles}}
+            <div class="vehicle-card" 
+                 data-id="{{this._id}}" 
+                 data-brand="{{this.brand}}" 
+                 data-model="{{this.model}}" 
+                 data-type="{{this.carType}}" 
+                 data-rate="{{this.dailyRate}}"
+                 data-status="{{this.status}}"
+                 data-capacity="{{this.capacity}}">
+                 
+                <img src="{{this.image}}" alt="{{this.brand}}">
                 <div class="vehicle-info">
-                    <p><strong>Brand:</strong> {{this.brand}}</p>
-                    <p><strong>Model:</strong> {{this.model}}</p>
+                    <h2>{{this.brand}} {{this.model}}</h2>
                     <p><strong>Type:</strong> {{this.carType}}</p>
                     <p><strong>Capacity:</strong> {{this.capacity}}-Seater</p>
                     <p><strong>Daily Rate:</strong> ₱{{this.dailyRate}}</p>
                     <p><strong>Status:</strong> 
                         {{#if this.status}}
-                            Available
+                            <span class="active-text">Available</span>
                         {{else}}
-                            Unavailable
+                            <span class="suspended-text">Unavailable</span>
                         {{/if}}
                     </p>
                 </div>
@@ -60,7 +92,7 @@
         </div>
     </div>
 
-    <footer>
+        <footer>
         <div class="footerContainer">
             <a href="/manage-users" class="disable-link">Manage Users</a>
             <a href="/manage-vehicles" class="disable-link">Manage Vehicles</a>
@@ -68,5 +100,65 @@
         </div>
     </footer>
 
+    <div id="vehicleFormModal" class="popup">
+        <div class="Popupcontent form-popup">
+            <h2 id="formModalTitle" style=" color: white;}">Add New Vehicle</h2>
+            <hr>
+            <form id="vehicleForm">
+                <input type="hidden" id="formVehicleId">
+                
+                <label>Brand:</label>
+                <input type="text" id="formBrand" required>
+                
+                <label>Model:</label>
+                <input type="text" id="formModel" required>
+                
+                <label>Type:</label>
+                <select id="formType">
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Van">Van</option>
+                </select>
+
+                <label>Capacity:</label>
+                <input type="number" id="formCapacity" required>
+
+                <label>Daily Rate (₱):</label>
+                <input type="number" id="formRate" required>
+
+                <label>Status:</label>
+                <select id="formStatus">
+                    <option value="true">Available</option>
+                    <option value="false">Unavailable</option>
+                </select>
+
+                <label>Vehicle Image:</label>
+                <input type="file" id="formImageFile" name="vehicleImage" accept="image/*">
+                <input type="hidden" id="formImageURL">
+
+                <div class="modal-buttons">
+                    <button type="button" class="cancel" id="formCancelBtn">Cancel</button>
+                    <button type="submit" class="proceed btn-add" id="formSaveBtn">Save Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="manageconf" class="popup">
+        <div class="Popupcontent">
+            <h2>Confirm Action</h2>
+            <hr>
+            <div>
+                <p>Delete vehicle <strong id="deleteTargetName"></strong>?</p>
+                <p class="warning-text">This action cannot be undone.</p>
+                <div class="modal-buttons">
+                    <button class="cancel" id="deleteCancelBtn">No, Go Back</button>
+                    <button class="proceed btn-delete" id="deleteConfirmBtn">Yes, Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/manage-vehicles.js"></script>
 </body>
 </html>
