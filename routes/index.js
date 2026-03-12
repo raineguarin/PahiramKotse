@@ -74,4 +74,15 @@ router.get('/logout', (req, res) => {
         res.redirect('/'); 
     });
 });
+
+// Contact-us page
+router.get('/contact-us', (req, res) => {
+    res.render('contact-us');
+});
+
+// Contact-us page
+router.get('/friends', (req, res) => {
+    res.render('friends');
+});
+
 module.exports = router;
