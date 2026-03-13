@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const reservation = require('../model/reservation');
+const review = require('../model/review');
 
 // GET: Show the Manage Reservations admin page
 router.get('/manage-reservations', async (req, res) => {
@@ -62,6 +63,57 @@ router.get('/reservations', async (req, res) => {
     } catch (err) {
         console.error("Error fetching reservations:", err);
         res.status(500).send("Error loading your reservations.");
+    }
+});
+
+//review get
+router.get('/review/:vehicleId', async (req, res) => {
+    try {
+        const vehicle = await vehicle.findById(req.params.vehicleId);
+
+        res.render('review', {
+            vehicle
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading review page.");
+    }
+});
+
+//review post
+router.post('/submit-review', async (req, res) => {
+
+    if (!req.session.userId) {
+        return res.status(401).json({ error: "Login required." });
+    }
+
+    try {
+        const { vehicleId, reservationId, title, description } = req.body;
+
+        const existingReview = await review.findOne({
+            user: req.session.userId,
+            car: vehicleId
+        });
+
+        if (existingReview) {
+            return res.status(400).json({ error: "You already reviewed this vehicle." });
+        }
+
+        const newReview = new review({
+            user: req.session.userId,
+            car: vehicleId,
+            title,
+            description
+        });
+
+        await newReview.save();
+
+        res.json({ message: "Review saved!" });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to submit review." });
     }
 });
 

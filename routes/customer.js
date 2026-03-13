@@ -38,7 +38,7 @@ router.post('/register', upload.single('profilePic'), async (req, res) => {
         
         // Stores only the filename or a relative web path in the DB
         // If the req.file exists, store the generated filename, otherwise use the default
-        const imagePath = req.file ? req.file.filename : 'default.png';
+        const imagePath = req.file ? req.file.filename : 'default.jpg';
 
         const newUser = new user({
             name,
