@@ -15,9 +15,19 @@ const userSchema = new mongoose.Schema({
     profilePicture: { type: String, default: 'default.jpg' }, 
     description: { type: String },
     isPublic: { type: Boolean, default: true }, 
+
+    friends: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
+    }],
+
+    friendRequests: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
+    }],
     
     // Admin
-    staffID: { type: String } 
+    staffID: { type: String }, 
 });
 
 module.exports = mongoose.model('User', userSchema);
