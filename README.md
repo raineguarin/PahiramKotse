@@ -65,6 +65,10 @@ The backend is currently being implemented and being tested via server deploymen
        3. Press **Save and Connect**
     
    - Via MongoDB Atlas:
+     MongoDB Admin Credentials
+       User: PahiramKoAdmin
+       Password: Group4Apdev
+
 3. Install Handlebars, Session, and Multer via Node.js in the terminal (make sure it is in the repository)
 
    ```
