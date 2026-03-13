@@ -106,7 +106,14 @@ router.post('/search', async (req, res) => {
             query.capacity = Number(capacity);
         }
 
-        const filteredVehicles = await vehicle.find(query);
+        const filteredVehicles = await vehicle.find(query).lean();
+
+        for (let car of filteredVehicles) {
+            car.reviews = await Review.find({ car: car._id }).populate('user', 'name');
+            car.likeCount = (car.likes || 0) + (car.likedBy?.length || 0);
+        }
+
+        filteredVehicles.sort((a, b) => b.likeCount - a.likeCount);
 
         res.render('cars', {
             vehicles: filteredVehicles

@@ -6,6 +6,7 @@ const router = express.Router();
 const vehicle = require('../model/vehicle'); 
 const user = require('../model/user');
 const reservation = require('../model/reservation');
+const Review = require('../model/review');
 
 // Homepage Route
 router.get('/', async (req, res) => {
@@ -80,9 +81,70 @@ router.get('/contact-us', (req, res) => {
     res.render('contact-us');
 });
 
-// Contact-us page
-router.get('/friends', (req, res) => {
-    res.render('friends');
+// Friends page
+router.get('/friends', async (req, res) => {
+    try {
+        const userId = req.session.userId;
+
+        
+        const currentUser = await user.findById(req.session.userId);
+
+        if (!currentUser) {
+            return res.redirect('/login');
+        }
+
+        const friends = currentUser.friends || [];
+
+        
+        const friendReviews = await Review.find({
+            user: { $in: friends }
+        }) 
+        .populate('user', 'name')
+        .populate('car', 'brand model');
+
+        const otherReviews = await Review.find({
+            user: { $nin: [...friends, userId] }
+        })
+        .populate('user', 'name')
+        .populate('car', 'brand model');
+
+        res.render('friends', {
+            friendReviews,
+            otherReviews
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Failed to load friends reviews");
+    }
+});
+
+router.post('/addFriend', async (req, res) => {
+    try {
+
+        const currentUser = req.session.userId;
+        const friendId = req.body.friendId;
+
+        if (!currentUser) {
+            return res.redirect('/login');
+        }
+
+        await user.findByIdAndUpdate(
+            currentUser,
+            { $addToSet: { friends: friendId } }
+        );
+
+        await user.findByIdAndUpdate(
+            friendId,
+            { $addToSet: { friends: currentUser } }
+        );
+
+        res.json({ success: true });
+
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false });
+    }
 });
 
 module.exports = router;
