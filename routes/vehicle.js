@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const Review = require('../model/review');
 const vehicle = require('../model/vehicle');
 const reservation = require('../model/reservation');
 
@@ -30,13 +31,55 @@ router.post('/delete-vehicle', async (req, res) => {
 // GET: Show the public Cars page
 router.get('/cars', async (req, res) => {
     try {
-        const allVehicles = await vehicle.find({});
+        const allVehicles = await vehicle.find({}).lean();
+
+        for (let car of allVehicles) {
+            car.reviews = await Review.find({ car: car._id }).populate('user', 'name');
+            car.likeCount = (car.likes || 0) + (car.likedBy?.length || 0);
+        }
+
+        allVehicles.sort((a, b) => b.likeCount - a.likeCount);
+
         res.render('cars', { vehicles: allVehicles });
+
     } catch (err) {
         console.error(err);
         res.status(500).send("Error loading vehicles.");
     }
 });
+
+router.post('/like-vehicle', async (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).json({ error: "Log in to like!" });
+    }
+
+    try {
+        const { carId } = req.body;
+        const car = await vehicle.findById(carId);
+
+        if (!car.likedBy) car.likedBy = [];
+
+        const userId = req.session.userId;
+        const index = car.likedBy.indexOf(userId);
+
+        if (index === -1) {
+            car.likedBy.push(userId);
+        } else {
+            car.likedBy.splice(index, 1);
+        }
+
+        await car.save();
+
+        const likeCount = (car.likes || 0) + car.likedBy.length;
+
+        res.json({ likeCount });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to update likes" });
+    }
+});
+
 
 router.get('/search', (req, res) => {
     res.render('search');

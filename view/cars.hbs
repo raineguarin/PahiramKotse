@@ -32,25 +32,29 @@
 
         <div class="boxcontainer">
             {{#each vehicles}}
-            <div class="boxcars">
-                <img src="{{this.image}}" alt="{{this.brand}} {{this.model}}">
-                <div class="boxcarsinfo">
-                    <h2>{{this.brand}} {{this.model}}</h2>
-                    <h3>{{this.capacity}}-Seater</h3>
-                    
-                    <h3>{{#if this.status}}Available{{else}}Not-Available{{/if}}</h3>
-                    
-                    <a href="#" class="disable-linkcars" data-car="{{this._id}}" data-name="{{this.brand}} {{this.model}}"> Click to see Reviews</a>
-                    
-                    <button type="button" class="proceed"
-                        onclick="openReserveModal('{{this._id}}','{{this.brand}} {{this.model}}')"
-                        {{#unless this.status}}disabled style="background-color: grey; cursor: not-allowed;"{{/unless}}>
-                        Reserve
-                    </button>
+                <div class="boxcars">
+                    <img src="{{this.image}}" alt="{{this.brand}}">
+                    <div class="boxcarsinfo">
+                        <h2>{{this.brand}} {{this.model}}</h2>
+                        <h3>Rate: ₱{{this.dailyRate}}/day</h3> <div class="like-section">
+                            <div class="like-container">
+                                <span class="like-icon" id="like-icon-{{this._id}}" onclick="toggleLike('{{this._id}}')">
+                                    👍
+                                </span>
+                                <span class="like-count" id="likes-{{this._id}}">{{this.likeCount}}</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="disable-linkcars" data-carname="{{this.brand}} {{this.model}}"data-reviews='{{{json this.reviews}}}'>
+                        View Reviews
+                        </a>
+                        
+                        <button type="button" class="proceed" onclick="openReserveModal('{{this._id}}', '{{this.brand}} {{this.model}}')">
+                            Reserve
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <hr> <br>
-            {{/each}}
+                {{/each}}
         </div>
 
         <footer>

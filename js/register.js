@@ -32,40 +32,40 @@ const inputs = {
 
 Object.keys(inputs).forEach(id => {
     const inputEl = document.getElementById(id);
-    if (inputEl) {
-        inputEl.addEventListener("input", function() {
-            const errorMessage = inputs[id].validate(this.value);
-            document.getElementById(inputs[id].errorId).innerText = errorMessage;
-            this.style.border = errorMessage ? "2px solid #ff4d4d" : "2px solid #28a745";
-        });
-    }
+    inputEl.addEventListener("input", function() {
+        const errorMessage = inputs[id].validate(this.value);
+        document.getElementById(inputs[id].errorId).innerText = errorMessage;
+        this.style.border = errorMessage ? "2px solid #ff4d4d" : "2px solid #28a745";
+    });
 });
 
+// new logic for submission
 async function validateForm(event) {
-    event.preventDefault(); 
+    // Prevents default HTML form submission
+    if (event) event.preventDefault();
 
     let allValid = true;
     
+    // Validate text inputs
     Object.keys(inputs).forEach(id => {
         const inputEl = document.getElementById(id);
-        if (inputEl) {
-            const errorMessage = inputs[id].validate(inputEl.value);
-            document.getElementById(inputs[id].errorId).innerText = errorMessage;
-            if (errorMessage) {
-                allValid = false;
-                inputEl.style.border = "2px solid #ff4d4d";
-            }
+        const errorMessage = inputs[id].validate(inputEl.value);
+        document.getElementById(inputs[id].errorId).innerText = errorMessage;
+        if (errorMessage) {
+            allValid = false;
+            inputEl.style.border = "2px solid #ff4d4d";
         }
     });
 
     if (allValid) {
+        // Uses FormData API for automatic file handling
         const formElement = document.getElementById('registrationForm');
         const formData = new FormData(formElement);
 
         try {
             const response = await fetch('/register', {
                 method: 'POST',
-                body: formData
+                body: formData 
             });
 
             if (response.ok) {
@@ -82,14 +82,9 @@ async function validateForm(event) {
     }
 }
 
-const regForm = document.getElementById('registrationForm');
-if (regForm) {
-    regForm.addEventListener('submit', validateForm);
-}
+// 4. Attach the event listener to the form instead of just the button
+document.getElementById('registrationForm').addEventListener('submit', validateForm);
 
-const regNumberEl = document.getElementById("regNumber");
-if (regNumberEl) {
-    regNumberEl.addEventListener("keypress", function(e) {
-        if (e.which < 48 || e.which > 57) e.preventDefault(); 
-    });
-}
+document.getElementById("regNumber").addEventListener("keypress", function(e) {
+    if (e.which < 48 || e.which > 57) e.preventDefault(); 
+});

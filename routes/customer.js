@@ -34,27 +34,28 @@ router.get('/register', (req, res) => {
 // Register
 router.post('/register', upload.single('profilePic'), async (req, res) => {
     try {
-
-        const { name, email, number, password } = req.body; 
+        const { name, email, number, password, username } = req.body;
         
-        const profileImg = req.file ? req.file.filename : 'default.jpg';
+        // Stores only the filename or a relative web path in the DB
+        // If the req.file exists, store the generated filename, otherwise use the default
+        const imagePath = req.file ? req.file.filename : 'default.png';
 
         const newUser = new user({
             name,
             email,
             phone: number,
             password, 
-            username: email, 
+            username: username || email,
             role: 'Customer',
-            profilePicture: profileImg 
+            profilePicture: req.file ? req.file.filename : 'default.jpg' 
         });
 
         await newUser.save();
         
-        res.status(200).json({ message: "Success" });
         
+        res.redirect('/login');
     } catch (err) {
-        console.error("Save Error:", err);
+        console.error(err);
         res.status(500).json({ error: "Server Error during registration" });
     }
 });
@@ -76,7 +77,7 @@ router.post('/login', async (req, res) => {
                 if (userFound.role === 'Admin') {
                     res.redirect('/admin-homepage'); 
                 } else {
-                    res.redirect('/cars'); 
+                    res.redirect('/profile'); 
                 }
                 
             } else {

@@ -93,3 +93,21 @@
 .reviewclose:hover {
   color: red;
 }
+
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.like-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    user-select: none; 
+}
+
+.like-icon:hover {
+    transform: scale(1.2);
+}

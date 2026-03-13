@@ -1,7 +1,3 @@
-const mockReviews = {
-    default: ["Amazing vehicle!", "Very comfortable.", "The design is very human."]
-};
-
 const Popup = document.getElementById("reviewPopup");
 const reviewTitle = document.getElementById("reviewTitle");
 const reviewbody = document.getElementById("reviewbody");
@@ -10,26 +6,61 @@ const reviewLinks = document.querySelectorAll(".disable-linkcars");
 const reservePopup = document.getElementById("reservePopup");
 const reserveClose = document.querySelector(".reserveclose");
 
-reviewLinks.forEach(link => {
-    link.addEventListener("click", function(event) {
-        event.preventDefault();
-        
-        const carId = this.getAttribute("data-car");
-        const carName = this.getAttribute("data-name");
+document.querySelectorAll(".disable-linkcars").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
 
-        reviewTitle.innerText = `${carName} Reviews`;
-        reviewbody.innerHTML = ""; 
-        
-        mockReviews.default.forEach(rev => {
-            const p = document.createElement("p");
-            p.innerText = `“${rev}”`;
-            reviewbody.appendChild(p);
-        });
+        const carName = this.dataset.carname;
+        const reviews = JSON.parse(this.dataset.reviews);
 
-        Popup.style.display = "block";
+        showRealReviews(carName, reviews);
     });
 });
 
+//The like functionality
+async function toggleLike(carId) {
+    const response = await fetch('/like-vehicle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carId })
+    });
+    const data = await response.json();
+    if (response.ok) {
+        document.getElementById(`likes-${carId}`).innerText = `👍 ${data.likeCount}`;
+    }
+}
+
+//reviews
+function showRealReviews(carName, reviews) {
+    const reviewTitle = document.getElementById("reviewTitle");
+    const reviewbody = document.getElementById("reviewbody");
+    const Popup = document.getElementById("reviewPopup");
+
+    reviewTitle.innerText = `${carName} Reviews`;
+    reviewbody.innerHTML = "";
+
+    if (!reviews || reviews.length === 0) {
+        reviewbody.innerHTML = "<p>No reviews yet for this vehicle.</p>";
+    } else {
+        reviews.forEach(rev => {
+            const div = document.createElement("div");
+
+            div.innerHTML = `
+                <strong>${rev.title || "Review"}</strong><br>
+                <small>By: ${rev.user?.name || "Anonymous"}</small>
+                <p>“${rev.description}”</p>
+                <hr>
+            `;
+
+            reviewbody.appendChild(div);
+        });
+    }
+
+    Popup.style.display = "block";
+}
+
+
+//popups
 function openReserveModal(carId, carName) {
     document.getElementById("reserveCarId").value = carId;
     document.getElementById("displayCarName").innerText = carName;
