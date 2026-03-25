@@ -1,0 +1,125 @@
+[{
+  "_id": {
+    "$oid": "69b05aa9bbaa6a6187bb990d"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f7"
+  },
+  "vehicle": {
+    "$oid": "69a95ad5e0d470e4e1a74915"
+  },
+  "date": "Mar 15, 2026",
+  "time": "9:00 AM - 12:00 PM",
+  "status": "Completed",
+  "paymentStatus": "Unpaid"
+},
+{
+  "_id": {
+    "$oid": "69b05aa9bbaa6a6187bb990e"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f8"
+  },
+  "vehicle": {
+    "$oid": "69a95d02cd9e716521410fd2"
+  },
+  "date": "Mar 20, 2026",
+  "time": "1:00 PM - 5:00 PM",
+  "status": "Approved",
+  "paymentStatus": "Down Payment"
+},
+{
+  "_id": {
+    "$oid": "69b17a6c269c4bf2ca5f529a"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f8"
+  },
+  "vehicle": {
+    "$oid": "69a95ad5e0d470e4e1a74915"
+  },
+  "date": "2026-03-12",
+  "time": "12:21 PM - 9:21 PM",
+  "status": "Cancelled",
+  "paymentStatus": "Unpaid",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b2ac82bc2ef713c5b17ff1"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f7"
+  },
+  "vehicle": {
+    "$oid": "69a95d02cd9e716521410fd3"
+  },
+  "date": "Mar 20, 2026",
+  "time": "5:00 PM - 8:00 PM",
+  "status": "Pending",
+  "paymentStatus": "Unpaid"
+},
+{
+  "_id": {
+    "$oid": "69b3d7f92dc96c2d21fb13e8"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f8"
+  },
+  "vehicle": {
+    "$oid": "69a95ad5e0d470e4e1a74915"
+  },
+  "date": "2026-03-14",
+  "time": "7:24 AM - 9:24 PM",
+  "status": "Cancelled",
+  "paymentStatus": "Unpaid",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b3e49525ca2b6f0adb4801"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f7"
+  },
+  "vehicle": {
+    "$oid": "69b30ef1ed16794439bf065e"
+  },
+  "date": "2026-03-13",
+  "time": "5:00 PM - 9:00 PM",
+  "status": "Cancelled",
+  "paymentStatus": "Unpaid",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b40a9f940245bbb488c725"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f8"
+  },
+  "vehicle": {
+    "$oid": "69a95d02cd9e716521410fd3"
+  },
+  "date": "2026-03-20",
+  "time": "9:01 AM - 11:01 PM",
+  "status": "Completed",
+  "paymentStatus": "Unpaid",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b4225d085d12c46079a03d"
+  },
+  "customer": {
+    "$oid": "69af988f6808aca1fb3a82f7"
+  },
+  "vehicle": {
+    "$oid": "69b30ef1ed16794439bf065e"
+  },
+  "date": "2026-03-13",
+  "time": "9:00AM - 12:00PM",
+  "status": "Approved",
+  "paymentStatus": "Unpaid",
+  "__v": 0
+}]

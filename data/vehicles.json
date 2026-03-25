@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "69a95ad5e0d470e4e1a74915"
+  },
+  "brand": "Honda",
+  "model": "City",
+  "carType": "Sedan",
+  "capacity": 5,
+  "likes": 10,
+  "dailyRate": 750,
+  "status": true,
+  "image": "/images/sedan.png",
+  "__v": 28,
+  "likedBy": []
+},
+{
+  "_id": {
+    "$oid": "69a95d02cd9e716521410fd0"
+  },
+  "brand": "Toyota",
+  "model": "Cross",
+  "carType": "SUV",
+  "capacity": 7,
+  "likes": 25,
+  "dailyRate": 750,
+  "status": true,
+  "image": "/images/suv.png",
+  "__v": 6,
+  "likedBy": []
+},
+{
+  "_id": {
+    "$oid": "69a95d02cd9e716521410fd3"
+  },
+  "brand": "Ford",
+  "model": "Van",
+  "carType": "Van",
+  "capacity": 10,
+  "likes": 30,
+  "dailyRate": 750,
+  "status": false,
+  "image": "/images/vehicleImage-1773342581175.png",
+  "__v": 10,
+  "likedBy": []
+},
+{
+  "_id": {
+    "$oid": "69b30ef1ed16794439bf065e"
+  },
+  "brand": "Mazda",
+  "model": "CX7",
+  "carType": "Sedan",
+  "capacity": 5,
+  "dailyRate": 500,
+  "likes": 0,
+  "image": "/images/vehicleImage-1773342449904.png",
+  "status": true,
+  "__v": 12,
+  "likedBy": []
+},
+{
+  "_id": {
+    "$oid": "69a95d02cd9e716521410fd2"
+  },
+  "brand": "Suzuki",
+  "model": "Jimny",
+  "carType": "SUV",
+  "capacity": 5,
+  "likes": 5,
+  "dailyRate": 500,
+  "status": true,
+  "image": "/images/jimny.png"
+}]

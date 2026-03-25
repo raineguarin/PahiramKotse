@@ -1,0 +1,207 @@
+[{
+  "_id": {
+    "$oid": "69af988f6808aca1fb3a82f9"
+  },
+  "name": "Luis Gutierrez",
+  "username": "luisg",
+  "email": "luis@email.com",
+  "password": "password123",
+  "role": "Admin",
+  "profilePicture": "default.jpg",
+  "staffID": "0123"
+},
+{
+  "_id": {
+    "$oid": "69af988f6808aca1fb3a82f6"
+  },
+  "name": "Allysa Villamor",
+  "username": "allysavv",
+  "email": "allysa@email.com",
+  "password": "password123",
+  "role": "Admin",
+  "profilePicture": "default.jpg",
+  "staffID": "0124",
+  "status": "Active",
+  "isVerified": false,
+  "licenseNumber": ""
+},
+{
+  "_id": {
+    "$oid": "69af988f6808aca1fb3a82f8"
+  },
+  "name": "Ashton Ching",
+  "username": "ashtonc",
+  "email": "ashton@email.com",
+  "password": "password123",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N01-12-345679",
+  "profilePicture": "default.jpg",
+  "description": "I want a blue Sedan to borrow.",
+  "isPublic": true
+},
+{
+  "_id": {
+    "$oid": "69af988f6808aca1fb3a82f7"
+  },
+  "name": "Raine Guarin",
+  "username": "raineg",
+  "email": "raine@email.com",
+  "password": "password123",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N01-12-345679",
+  "profilePicture": "default.jpg",
+  "description": "Finding a good cool car!",
+  "isPublic": true,
+  "friends": [
+    {
+      "$oid": "69aff8165780e7b53f23a4bc"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69aff5e95780e7b53f23a4bb"
+  },
+  "name": "Juan Dela Cruz",
+  "username": "imthejuan",
+  "email": "delacruzj@gmail.com",
+  "password": "1juanOne",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N02-98-765432",
+  "profilePicture": "default.jpg",
+  "description": "i need a comfy ride for a road trip.",
+  "isPublic": false,
+  "friends": [
+    {
+      "$oid": "69b3b735761689eed3344e12"
+    },
+    {
+      "$oid": "69aff9715780e7b53f23a4bd"
+    },
+    {
+      "$oid": "69affa075780e7b53f23a4be"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69aff8165780e7b53f23a4bc"
+  },
+  "name": "Mark Lee",
+  "username": "onyourm4rk",
+  "email": "neomark@email.com",
+  "password": "127oclock",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N01-27-721346",
+  "profilePicture": "default.jpg",
+  "description": "need a car that can fit 7 people!",
+  "isPublic": true,
+  "friends": [
+    {
+      "$oid": "69af988f6808aca1fb3a82f7"
+    },
+    {
+      "$oid": "69b3b735761689eed3344e12"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69aff9715780e7b53f23a4bd"
+  },
+  "name": "Stella Santos",
+  "username": "2tella",
+  "email": "stellasan@email.com",
+  "password": "helloh2h",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N01-22-891276",
+  "profilePicture": "default.jpg",
+  "description": "Hoping to get a car available for a solo road trip.",
+  "isPublic": true,
+  "friends": [
+    {
+      "$oid": "69aff5e95780e7b53f23a4bb"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69affa075780e7b53f23a4be"
+  },
+  "name": "John Ny",
+  "username": "johnn",
+  "email": "nyjohn@email.com",
+  "password": "pancak3s",
+  "role": "Customer",
+  "status": "Active",
+  "isVerified": true,
+  "licenseNumber": "N01-55-019582",
+  "profilePicture": "default.jpg",
+  "description": "My family would like to rent a 10-seater.",
+  "isPublic": false,
+  "friends": [
+    {
+      "$oid": "69aff5e95780e7b53f23a4bb"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69affadc5780e7b53f23a4bf"
+  },
+  "name": "Addy Min",
+  "username": "minddy",
+  "email": "addysmins@email.com",
+  "password": "m1ndyyyy",
+  "role": "Admin",
+  "profilePicture": "default.jpg",
+  "staffID": "0125"
+},
+{
+  "_id": {
+    "$oid": "69b00062852ea6ae2448556d"
+  },
+  "name": "Ashton Jude B Ching ",
+  "username": "example@gmail.com",
+  "status": "Active",
+  "email": "example@gmail.com",
+  "password": "12345678",
+  "role": "Customer",
+  "isVerified": false,
+  "profilePicture": "default.jpg",
+  "isPublic": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b3b735761689eed3344e12"
+  },
+  "name": "Lance Allison Dolotallas Villamor",
+  "username": "allison@email.com",
+  "status": "Active",
+  "email": "allison@email.com",
+  "password": "password123",
+  "role": "Customer",
+  "isVerified": false,
+  "profilePicture": "profilePic-1773409343955.jpg",
+  "isPublic": true,
+  "__v": 0,
+  "friends": [
+    {
+      "$oid": "69aff5e95780e7b53f23a4bb"
+    },
+    {
+      "$oid": "69aff8165780e7b53f23a4bc"
+    }
+  ]
+}]
