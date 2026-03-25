@@ -81,6 +81,11 @@ router.get('/contact-us', (req, res) => {
     res.render('contact-us');
 });
 
+// About page
+router.get('/about', (req, res) => {
+    res.render('about');
+});
+
 // Friends page
 router.get('/friends', async (req, res) => {
     try {
