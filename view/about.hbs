@@ -16,15 +16,20 @@
         </div>
 
         <ul class="navlinks">
-            <li><a href="/cars">Our Vehicles</a></li>
-            <li><a href="/search">Search a Car</a></li>
-            <li><a href="/friends">Friends</a></li>
-            <li><a href="/reservations">My Reservations</a></li>
-            <li>
-              <a href="/profile">
-                    <img src="/images/{{user.profilePicture}}" alt="Profile" width="40px" height="40px" style="border-radius:50%; object-fit: cover;">
-                </a>
-            </li>
+            {{#if user}}
+                <li><a href="/cars">Our Vehicles</a></li>
+                <li><a href="/search">Search a Car</a></li>
+                <li><a href="/friends">Friends</a></li>
+                <li><a href="/reservations">My Reservations</a></li>
+                <li>
+                  <a href="/profile">
+                        <img src="/images/{{user.profilePicture}}" alt="Profile" width="40px" height="40px" style="border-radius:50%; object-fit: cover;">
+                    </a>
+                </li>
+            {{else}}
+                <li><a href="/">Home</a></li>
+                <li><a href="/login" >Login</a></li>
+            {{/if}}
         </ul>
     </div>
 
