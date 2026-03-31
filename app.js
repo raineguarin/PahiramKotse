@@ -10,7 +10,7 @@ const session = require('express-session');
 const user = require('./model/user');
 const app = express();
 const exphbs = require('express-handlebars');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 
 
 // DATABASE CONNECTION 
@@ -57,12 +57,12 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { 
-        secure: process.env.NODE_ENV === 'production', // true on Vercel, false on localhost
-        maxAge: 1000 * 60 * 60 * 24 // 1 day (forces them to log in again after 24 hours)
+        secure: process.env.NODE_ENV === 'production', 
+        maxAge: 1000 * 60 * 60 * 24 
     },
-    store: MongoStore.create({
-        mongoUrl: process.env.URI, 
-        collectionName: 'sessions' 
+    store: new MongoStore({
+        url: process.env.URI,
+        collection: 'sessions' 
     })
 }));
 
