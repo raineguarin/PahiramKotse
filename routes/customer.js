@@ -10,7 +10,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
- const uploadDir = path.join(__dirname, '../assets/images/pfps');
+ const uploadDir = path.join(__dirname, '../assets/images');
 
 //pictures
 const storage = multer.diskStorage({

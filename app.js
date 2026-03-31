@@ -52,6 +52,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'js')));
 app.use(express.urlencoded({ extended: true }));
+
+app.set('trust proxy', 1);
+
 app.use(session({
     secret: 'secret_key', 
     resave: false,
