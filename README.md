@@ -1,7 +1,5 @@
 # Car Rental Website
 
-**PROJECT IN DEVELOPMENT**
-
 **PahiramKotse** is a web application that allows customers to easily rent a car online, and company administrators to manage reservations more conveniently.
 
 ## Project Information
@@ -9,7 +7,7 @@
 **Course:** GDAPDEV: Web Application Development  
 **Academic Year:** 2025-2026, Term 2  
 **Institution:** De La Salle University  
-**Current Status:** Backend in progress
+**Current Status:** Deployed via Vercel
 
 ## Team Members
 
@@ -21,7 +19,7 @@
 ## Project Overview
 **PahiramKotse** is a web application designed for easy car rentals. Keeping track of large amounts of data such as car information and user information can be quite tasking. This application aims to address this issue for customers through the easy-to-understand user interface, where information they need is easily accessible and navigable. Administrators can also easily manipulate data through its features.
 
-## Planned Features
+## Features
 - User Account (Registration, Log-in, Log-out, Delete)
 - User Profile (Edit)
 - Vehicle Profile (View, Edit)
@@ -36,20 +34,21 @@
 
 **Database**: MongoDB
 
-**Architecture**: Model View Controller design
+**Architecture**: Model-View-Controller design
 
-**Deployment**: Local deployment via Node.js
+**Deployment**: Deployed via Vercel
 
 ## Current Status
-The backend is currently being implemented and being tested via server deployments.
+The website is fully deployed.
 
 ### Getting Started
 
 ## Prerequisite Downloads
 - Node.js
+- Packages: Express Handlebars, Express Session, Multer, Bcrypt, Dotenv
 - MongoDB
 
-## Setup Instructions
+## Local Setup Instructions
 1. Clone the repository
 
    ```
@@ -65,9 +64,9 @@ The backend is currently being implemented and being tested via server deploymen
        3. Press **Save and Connect**
     
    - Via MongoDB Atlas:
-     MongoDB Admin Credentials
-       User: PahiramKoAdmin
-       Password: Group4Apdev
+       - MongoDB Admin Credentials
+         - User: PahiramKoAdmin
+         - Password: Group4Apdev
 
 3. Install Handlebars, Session, and Multer via Node.js in the terminal (make sure it is in the repository)
 
@@ -81,6 +80,18 @@ The backend is currently being implemented and being tested via server deploymen
 5. Start the server using the following command
 
    ```node app.js```
+
+## Deployment Instructions
+Prerequisites:
+  - MongoDB Atlas cluster is active
+  - MongoDB Atlas IP 0.0.0.0/0 is whitelisted
+  - Node.js version is 22.22.2
+
+Setup on Vercel:
+  1. Add a new Project on Vercel
+  2. Connect to Github and search for the "PahiramKotse" repository
+  3. Configure the framework to "Express" and the root directory to "./"
+  4. Configure the Environment Variables by uploading the .env file in the repository
 
 ## Current Repository Structure
 
@@ -138,12 +149,14 @@ The backend is currently being implemented and being tested via server deploymen
 │   ├── reservations.hbs
 │   ├── reserve-car.hbs
 │   └── search.hbs
+├── .env                                  # Environment Variables
 ├── .gitignore                            
 ├── app.js                                # Main entry point
 ├── LICENSE                               
 ├── package.json                          
-├── package-lock.json                    
-└── README.md                             # Project documentation
+├── package-lock.json
+├── README.md                             # Project documentation                  
+└── vercel.json
 ```
 
 
