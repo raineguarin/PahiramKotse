@@ -1,8 +1,8 @@
 // use node app.js in cli to check if connection works
 // after use http://localhost:3000/ on a browser to check that the homepage renders
 
-const dns = require('node:dns');
-dns.setServers(['8.8.8.8', '1.1.1.1']); 
+/*const dns = require('node:dns');
+dns.setServers(['8.8.8.8', '1.1.1.1']);*/
 
 const express = require('express');
 const mongoose = require('mongoose');
