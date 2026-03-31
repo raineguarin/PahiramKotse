@@ -10,19 +10,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// const uploadDir = path.join(__dirname, '../assets/images/pfps');
-const os = require('os');
-const path = require('path');
-
-const uploadDir = path.join(os.tmpdir(), 'pfps');
-
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
+ const uploadDir = path.join(__dirname, '../assets/images/pfps');
 
 //pictures
 const storage = multer.diskStorage({
